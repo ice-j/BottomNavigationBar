@@ -7,11 +7,11 @@
     <authors>pocheshire</authors>
     <owners>pocheshire</owners>
     <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
-    <projectUrl>https://github.com/pocheshire/BottomNavigationBar</projectUrl>
+    <projectUrl>https://github.com/ice-j/BottomNavigationBar</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>A custom view component that mimics the new Material Design Bottom Navigation pattern.</description>
+    <description>A custom view component that mimics the new Material Design Bottom Navigation pattern which uses Material Theme.</description>
     <releaseNotes>Added new features</releaseNotes>
-    <copyright>Copyright 2016</copyright>
+    <copyright>Copyright 2017</copyright>
     <tags>XamarinAndroid Xamarin Android BottomNavigationBar Bottom Navigation Bar</tags>
 	<dependencies>
       <dependency id="Newtonsoft.Json" version="9.0.1" />

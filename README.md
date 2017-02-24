@@ -6,7 +6,7 @@
 [Common problems and solutions](https://github.com/pocheshire/BottomNavigationBar/blob/master/README.md#common-problems-and-solutions)
 
 ## What?
-[BottomBar](https://github.com/pocheshire/BottomNavigationBar) ported to C#
+BottomBar for Xamarin.Android using Material Design because [BottomBar](https://github.com/pocheshire/BottomNavigationBar) uses AppCompat
 
 A custom view component that mimics the new [Material Design Bottom Navigation pattern](https://www.google.com/design/spec/components/bottom-navigation.html).
 

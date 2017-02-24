@@ -17,7 +17,6 @@
 
 using System;
 using Android.Widget;
-using Android.Support.V4.View;
 using Android.Content;
 using Android.Views;
 using Android.OS;
@@ -114,7 +113,7 @@ namespace BottomNavigationBar
 
             IsVisible = true;
 
-            ViewCompat.Animate(this)
+			this.Animate()
 	            .SetDuration(animated ? _animationDuration : 0)
 	            .ScaleX(1)
 	            .ScaleY(1)
@@ -127,7 +126,7 @@ namespace BottomNavigationBar
 		public void Hide(bool animated = true)
         {
             IsVisible = false;
-            ViewCompat.Animate(this)
+			this.Animate()
                 .SetDuration(animated ? _animationDuration : 0)
                 .ScaleX(0)
                 .ScaleY(0)

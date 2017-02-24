@@ -1,17 +1,25 @@
 ﻿using System;
-using Android.Support.V4.View;
 using Android.Views;
 using Android.Graphics;
+using Android.Animation;
 
 namespace BottomNavigationBar.Adapters
 {
-    internal class CustomViewPropertyAnimatorListenerAdapter : ViewPropertyAnimatorListenerAdapter
-    {
+    internal class CustomViewPropertyAnimatorListenerAdapter : Animator.IAnimatorListener
+	{
         private readonly View _backgroundView;
         private readonly View _bgOverlay;
         private readonly Color _newColor;
 
-        public CustomViewPropertyAnimatorListenerAdapter(View backgroundView, int newColor, View bgOverlay)
+		public IntPtr Handle
+		{
+			get
+			{
+				return IntPtr.Zero;
+			}
+		}
+
+		public CustomViewPropertyAnimatorListenerAdapter(View backgroundView, int newColor, View bgOverlay)
         {
             _backgroundView = backgroundView;
             _newColor = new Color(newColor);
@@ -22,18 +30,31 @@ namespace BottomNavigationBar.Adapters
         {
             _backgroundView.SetBackgroundColor(_newColor);
             _bgOverlay.Visibility = ViewStates.Invisible;
-            ViewCompat.SetAlpha(_bgOverlay, 1);
+			_bgOverlay.Alpha = 1;
         }
 
-        public override void OnAnimationEnd(Android.Views.View view)
-        {
+		public void OnAnimationCancel(Animator animation)
+		{
             OnCancel();
-        }
+		}
 
-        public override void OnAnimationCancel(View view)
-        {
+		public void OnAnimationRepeat(Animator animation)
+		{
+		}
+
+		public void OnAnimationStart(Animator animation)
+		{
+		}
+
+		public void Dispose()
+		{
+			OnCancel();
+		}
+
+		public void OnAnimationEnd(Animator animation)
+		{
             OnCancel();
-        }
-    }
+		}
+	}
 }
 

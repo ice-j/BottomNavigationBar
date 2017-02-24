@@ -23,8 +23,6 @@ using Android.Content;
 using Android.Content.Res;
 using Android.Graphics;
 using Android.OS;
-using Android.Support.V4.View;
-using Android.Support.V7.Widget;
 using Android.Util;
 using Android.Views;
 using BottomNavigationBar.Adapters;
@@ -83,7 +81,8 @@ namespace BottomNavigationBar
 		public static BottomBarTab[] InflateMenuFromResource (Activity activity, int menuRes)
 		{
 			// A bit hacky, but hey hey what can I do
-			var popupMenu = new PopupMenu (activity, null);
+			var popupMenu = new Android.Support.V7.Widget.PopupMenu(activity, null);
+			
 			var menu = popupMenu.Menu;
 			activity.MenuInflater.Inflate (menuRes, menu);
         
@@ -114,7 +113,7 @@ namespace BottomNavigationBar
 		[TargetApiAttribute (Value = (int)BuildVersionCodes.Lollipop)]
 		public static void AnimateBGColorChange (View clickedView, View backgroundView, View bgOverlay, int newColor)
 		{
-			int centerX = (int)(ViewCompat.GetX (clickedView) + (clickedView.MeasuredWidth / 2));
+			int centerX = (int)(clickedView.GetX() + (clickedView.MeasuredWidth / 2));
 			int centerY = clickedView.MeasuredHeight / 2;
 			int finalRadius = backgroundView.Width;
 
@@ -130,12 +129,12 @@ namespace BottomNavigationBar
 
 				animator = ViewAnimationUtils.CreateCircularReveal (bgOverlay, centerX, centerY, 0, finalRadius);
 			} else {
-				ViewCompat.SetAlpha (bgOverlay, 0);
-				animator = ViewCompat.Animate (bgOverlay).Alpha (1);
+				bgOverlay.Alpha = 0;
+				animator = bgOverlay.Animate().Alpha(1);
 			}
 
-			if (animator is ViewPropertyAnimatorCompat) {
-				((ViewPropertyAnimatorCompat)animator)
+			if (animator is ViewPropertyAnimator) {
+				((ViewPropertyAnimator)animator)
                     .SetListener (new CustomViewPropertyAnimatorListenerAdapter (backgroundView, newColor, bgOverlay))
                     .Start ();
 			} else if (animator != null) {

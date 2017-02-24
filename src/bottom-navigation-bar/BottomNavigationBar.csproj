@@ -13,7 +13,7 @@
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
     <AssemblyName>BottomNavigationBar</AssemblyName>
-    <TargetFrameworkVersion>v7.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v7.1</TargetFrameworkVersion>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ReleaseVersion>1.4.0.1</ReleaseVersion>
@@ -119,7 +119,9 @@
     <AndroidResource Include="Resources\values\strings.xml" />
     <AndroidResource Include="Resources\values\styles.xml" />
     <AndroidResource Include="Resources\layout\bb_bottom_bar_item_container_tablet.xml" />
-    <AndroidResource Include="Resources\layout\bb_bottom_bar_item_container.xml" />
+    <AndroidResource Include="Resources\layout\bb_bottom_bar_item_container.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
     <AndroidResource Include="Resources\layout\bb_bottom_bar_item_fixed_tablet.xml" />
     <AndroidResource Include="Resources\layout\bb_bottom_bar_item_fixed.xml" />
     <AndroidResource Include="Resources\layout\bb_bottom_bar_item_shifting.xml" />

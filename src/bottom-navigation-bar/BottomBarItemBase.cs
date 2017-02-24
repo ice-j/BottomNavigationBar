@@ -18,8 +18,6 @@
 using System;
 using Android.Graphics.Drawables;
 using Android.Content;
-using Android.Support.V4.Content;
-using Android.Support.V7.Widget;
 
 namespace BottomNavigationBar
 {
@@ -59,7 +57,7 @@ namespace BottomNavigationBar
 
         public Drawable GetIcon(Context context)
         {
-			return this._iconResource != 0 ? AppCompatDrawableManager.Get ().GetDrawable(context, this._iconResource) : this._icon;
+			return this._iconResource != 0 ? context.GetDrawable(this._iconResource) : this._icon;
         }
 
         public String GetTitle(Context context)

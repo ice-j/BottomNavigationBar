@@ -2,7 +2,6 @@
 using Android.Animation;
 using Android.Views;
 using Android.Graphics;
-using Android.Support.V4.View;
 
 namespace BottomNavigationBar.Adapters
 {
@@ -23,7 +22,7 @@ namespace BottomNavigationBar.Adapters
         {
             _backgroundView.SetBackgroundColor(_newColor);
             _bgOverlay.Visibility = ViewStates.Invisible;
-            ViewCompat.SetAlpha(_bgOverlay, 1);
+			_bgOverlay.Alpha = 1;
         }
 
         public override void OnAnimationEnd(Animator animation)
