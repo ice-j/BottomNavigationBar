@@ -34,18 +34,29 @@ namespace BottomNavigationBar
 	{
 		public static int GetColor (Context context, int color)
 		{
-			var tv = new Android.Util.TypedValue ();
-			context.Theme.ResolveAttribute (color, tv, true);
-			return tv.Data;
+            return GetColorCustom(context, color);
 		}
 
-		/// <summary>
-		/// Converts dps to pixels nicely.
-		/// </summary>
-		/// <returns>dimension in pixels</returns>
-		/// <param name="context">Context for getting the resources</param>
-		/// <param name="dp">dimension in dps</param>
-		public static int DpToPixel (Context context, float dp)
+        public static int GetColorCustom(Context context, int color)
+        {
+            if (Build.VERSION.SdkInt >= Build.VERSION_CODES.M)
+            {
+                return context.GetColor(color);
+            }
+            else
+            {
+                //noinspection deprecation
+                return context.Resources.GetColor(color);
+            }
+        }
+
+        /// <summary>
+        /// Converts dps to pixels nicely.
+        /// </summary>
+        /// <returns>dimension in pixels</returns>
+        /// <param name="context">Context for getting the resources</param>
+        /// <param name="dp">dimension in dps</param>
+        public static int DpToPixel (Context context, float dp)
 		{
 			var resources = context.Resources;
 			var metrics = resources.DisplayMetrics;
